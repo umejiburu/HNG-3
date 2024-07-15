@@ -5,7 +5,7 @@ export const ShopCart = createContext(null)
 
 function CartContext({children}) {
     const [productArray, setProductArray] = useState([])
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [cartItems, setCartItems] = useState([])
 
     useEffect(()=>{
@@ -27,32 +27,43 @@ function CartContext({children}) {
         fetchData();
       }, [])
 
+      useEffect(() => {
+        if (productArray.length > 0) {
+          const getDefaultCart = () => {
+            let cart = {};
+            for (let i = 1; i < productArray.length + 1; i++) {
+              cart[i] = 0;
+            }
+            return cart;
+          };
+    
+          setCartItems(getDefaultCart());
+        }
+      }, [productArray])
+
 
       if(loading){
         <h3>loading....</h3>
       }
-      const increaseQuantity = (id) => {
-        setCartItems(cartItems.map(item =>
-          item.id === id ? { ...item, amount: item.amount + 1 } : item
-        ));
-      };
-    
-      const removeFromCart  = (id) => {
-        setCartItems(
-          cartItems
-          .map(item =>
-          item.id === id ? { ...item, amount: item.amount - 1 } : item)
-        .filter(item => item.amount > 0));
-      };
 
-      const deleteFromCart = (id)=>{
-        setCartItems(cartItems.filter((item) => item.id !== id))
-      }
+    // const productArray = [...flashSale, ...recent]
+    console.log(productArray, productArray.length);
 
-   
-    // const removeFromCart = (itemId)=>{
-    //     setCartItems((prev)=>({...prev, [itemId]: prev[itemId] - 1}))
+    // const getDefaultCart = ()=>{
+    //     let cart = {}
+    //     for(let i =1; i < productArray.length + 1; i++){
+    //         cart[i] = 0
+    //     }
+    //     return cart;
     // }
+    // const [cartItems, setCartItems] = useState(getDefaultCart())
+
+    // const addToCart = (itemId)=>{
+    //     setCartItems((prev)=>({...prev, [itemId]: prev[itemId] + 1}))
+    // }
+    const removeFromCart = (itemId)=>{
+        setCartItems((prev)=>({...prev, [itemId]: prev[itemId] - 1}))
+    }
     
     const addToCart = (itemId) => {
         const specifiedItem = productArray.find((element) => element.id === itemId);
@@ -76,7 +87,10 @@ function CartContext({children}) {
         }
     };
     
-    const contextValue = {cartItems, addToCart, removeFromCart, increaseQuantity, productArray, deleteFromCart}
+    
+    console.log(cartItems);
+
+    const contextValue = {cartItems, addToCart, removeFromCart, productArray}
 
   return (
     <ShopCart.Provider value={contextValue}>

@@ -40,7 +40,7 @@ function RecentSale({heading}) {
               <div className=' bg-slate-100 w-60 h-60 flex items-center place-self-center'>
                 <img
                   src={item.image}
-                  className='object-cover cursor-pointer  hover:drop-shadow-xl hover:scale-105 ease-in-out duration-300 w-[150px] mx-auto '
+                  className='object-cover cursor-pointer  hover:drop-shadow-xl hover:scale-105 transition ease-in-out duration-300 w-[150px] mx-auto '
                   alt={item.title}
                 />
               </div>

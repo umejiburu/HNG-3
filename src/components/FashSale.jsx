@@ -6,7 +6,8 @@ import { ShopCart } from './CartContext';
 
 function FlashSale() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const {addToCart, cartItems} = useContext(ShopCart)
+  const {addToCart, cartItems, productArray} = useContext(ShopCart)
+  // console.log(productArray);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % flashSale.length);
@@ -37,24 +38,25 @@ function FlashSale() {
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           // style={{transform: ``}}
         >
-          {flashSale.map((item) => (
+          {productArray.map((item) => (
             <div key={item.id} className='flex flex-col items-start justify-between mr-4 relative'>
               <div className=' bg-slate-100 w-60 h-60 flex items-center place-self-center'>
                 <img
-                  src={item.image}
-                  className='object-cover cursor-pointer  hover:drop-shadow-xl hover:scale-105 ease-in-out duration-300 w-[150px] mx-auto '
-                  alt={item.title}
+                  src={`https://api.timbu.cloud/images/${item.photos[0]?.url}`}
+                  className='object-cover cursor-pointer  hover:drop-shadow-xl hover:scale-105 transition ease-in-out duration-300 w-[150px] mx-auto '
+                  // alt={item.title}
                 />
               </div>
               <i className='absolute right-5 top-4 bg-slate-300 rounded-full p-1'>
               {!item.star ? <MdOutlineFavorite className='fill-[#D74949]' /> :  <MdFavoriteBorder className=' hover:fill-[#D74949]' />}
               </i>
               <div className=" w-full flex justify-between pr-2">
-              <p className='font-bold'>{item.title}</p>
+              <p className='font-bold'>{item.name}</p>
               <span className='flex items-center'>4.5 <MdStarRate className={`${item?.star ? 'fill-yellow-300/65' : 'fill-slate-300'}`} /></span>
               </div>
-              <p className='font-bold'>NGN{item?.price ? item.price.toLocaleString() : '2,000,000'}</p>
-              <button className='bg-[#004D75] text-white px-2 py-1 rounded-lg' onClick={()=>addToCart(item.id)}>Add to cart {cartItems[item.id] > 0 && <>({cartItems[item.id]})</>}</button>
+              <p className='font-bold'>NGN{item?.current_price ? item.current_price[0].NGN[0].toLocaleString() : '2,000,000'}</p>
+              <button className='bg-[#004D75] text-white px-2 py-1 rounded-lg' onClick={()=>addToCart(item.id)}>Add to cart  {cartItems.map((cart) => { return cart.id === item.id ? <span key={cart.id}>{cart.amount}</span> : null })}</button>
+              {/* {item.amount > 0 && <>({item.amount})</>} */}
             </div>
           ))}
         </div>

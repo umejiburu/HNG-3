@@ -6,9 +6,12 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-
   theme: {
-    extend: { },
+    extend: {
+      borderRadius: {
+        'custom-md': '70px 0 0 0',
+      },
+     },
   },
   plugins: [
     plugin(function ({ addBase, addComponents, addUtilities, theme }) {

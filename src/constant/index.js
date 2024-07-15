@@ -26,7 +26,8 @@ export const flashSale = [
         section: 'flash Sale',
         thumbnails: [
            front1 ,
-           front2
+           front2,
+           iphone
         ]
 
     },
@@ -47,6 +48,7 @@ export const flashSale = [
         id: 3,
         image: ipad,
         star: true,
+        price: 28000,
         title: 'ipad pro',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ipsum, dolorum dicta minus beatae veritatis nostrum ex aut veniam tempore, perferendis quasi possimus impedit itaque quis, blanditiis id velit praesentium',
         section: 'flash Sale',
@@ -60,6 +62,7 @@ export const flashSale = [
         id: 4,
         image: iwatch,
         star: true,
+        price: 380000,
         title: 'iwatch ultra',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ipsum, dolorum dicta minus beatae veritatis nostrum ex aut veniam tempore, perferendis quasi possimus impedit itaque quis, blanditiis id velit praesentium',
         section: 'flash Sale',
@@ -73,6 +76,7 @@ export const flashSale = [
         id: 5,
         image: phone2,
         star: false,
+        price: 20000,
         title: 'samsung S23 ultra',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ipsum, dolorum dicta minus beatae veritatis nostrum ex aut veniam tempore, perferendis quasi possimus impedit itaque quis, blanditiis id velit praesentium',
         section: 'flash Sale',
@@ -85,6 +89,8 @@ export const flashSale = [
     {
         id: 6,
         image: macbook,
+        star: false,
+        price: 280000,
         title: 'macbook pro',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ipsum, dolorum dicta minus beatae veritatis nostrum ex aut veniam tempore, perferendis quasi possimus impedit itaque quis, blanditiis id velit praesentium',
         section: 'flash Sale',
@@ -98,6 +104,7 @@ export const flashSale = [
         id: 7,
         image: iphone,
         star: true,
+        price: 260000,
         title: 'iphone 13pro',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ipsum, dolorum dicta minus beatae veritatis nostrum ex aut veniam tempore, perferendis quasi possimus impedit itaque quis, blanditiis id velit praesentium',
         section: 'flash Sale',
@@ -115,6 +122,8 @@ export const recent = [
     {
         id: 8,
         image: samsung,
+        star: true,
+        price: 230000,
         title: 'samsung',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ipsum, dolorum dicta minus beatae veritatis nostrum ex aut veniam tempore, perferendis quasi possimus impedit itaque quis, blanditiis id velit praesentium',
         section: 'recent',
@@ -127,6 +136,8 @@ export const recent = [
     {
         id: 9,
         image: tv,
+        star: false,
+        price: 480000,
         title: 'tv',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ipsum, dolorum dicta minus beatae veritatis nostrum ex aut veniam tempore, perferendis quasi possimus impedit itaque quis, blanditiis id velit praesentium',
         section: 'recent',
@@ -139,6 +150,8 @@ export const recent = [
     {
         id: 10,
         image: printer,
+        star: false,
+        price: 28000,
         title: 'printer',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ipsum, dolorum dicta minus beatae veritatis nostrum ex aut veniam tempore, perferendis quasi possimus impedit itaque quis, blanditiis id velit praesentium',
         section: 'recent',
@@ -151,6 +164,8 @@ export const recent = [
     {
         id: 11,
         image: powerBank,
+        star: true,
+        price: 21000,
         title: 'powerBank',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ipsum, dolorum dicta minus beatae veritatis nostrum ex aut veniam tempore, perferendis quasi possimus impedit itaque quis, blanditiis id velit praesentium',
         section: 'recent',
@@ -163,6 +178,8 @@ export const recent = [
     {
         id: 12,
         image: laptop,
+        star: true,
+        price: 100000,
         title: 'laptop',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ipsum, dolorum dicta minus beatae veritatis nostrum ex aut veniam tempore, perferendis quasi possimus impedit itaque quis, blanditiis id velit praesentium',
         section: 'recent',
@@ -175,6 +192,8 @@ export const recent = [
     {
         id: 13,
         image: airpod,
+        star: true,
+        price: 33000,
         title: 'airpod',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ipsum, dolorum dicta minus beatae veritatis nostrum ex aut veniam tempore, perferendis quasi possimus impedit itaque quis, blanditiis id velit praesentium',
         section: 'recent',
