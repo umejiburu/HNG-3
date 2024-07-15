@@ -7,12 +7,13 @@ import { useContext } from "react";
 import { ShopCart } from "../components/CartContext";
 
 function CheckOut() {
-  const {cartItems, productArray} = useContext(ShopCart)
-  let amountLength = 0
-  const cartLength = productArray.map((prod)=> {
-      amountLength = cartItems[prod.id] > 0
-      console.log(amountLength);
-  })
+  const {cartItems} = useContext(ShopCart)
+  console.log(cartItems);
+  const totalValue = cartItems.reduce((accumulator, product) => {
+    return accumulator + (product.current_price[0].NGN[0] * product.amount);
+  }, 0);
+  console.log(totalValue);
+
   return (
     <div className="pt-10 mx-auto max-w-[1024px]">
       <div className="flex justify-center items-center ">
@@ -100,42 +101,38 @@ function CheckOut() {
           <div className="p-4">
             <h3>Order Summary</h3>
             <div className="bg-[#B7B7B7] rounded-md p-3 ">
-            {productArray.map((product) => {
-            if(cartItems[product.id] !== 0){
+            {cartItems.map((product) => {
                 return (
                   <div key={product.id} className="flex justify-between lg:gap-4 items-center py-3 ">
                     <div className="border py-1 h-16 w-20 max-w-28 rounded-md mb-2 relative">
                         <img src={product.image} alt="" width={40} height={40} className="mx-auto" />
-                      <p className="absolute -top-2 -right-2  border rounded-full w-6 bg-white shadow-md shadow-black/70 text-center">{cartItems[product.id]}</p>
+                      <p className="absolute -top-2 -right-2  border rounded-full w-6 bg-white shadow-md shadow-black/70 text-center">{product.amount}</p>
                     </div>
                     <div>
-                      <p className="font-bold text-lg pb-1">{product.title}</p>
+                      <p className="font-bold text-lg pb-1">{product.name}</p>
                       <p>Midnight Blue</p>
                     </div>
-                    <p className="font-bold">{product.price}</p>
+                    <p className="font-bold">{product.current_price[0].NGN[0]}</p>
                   </div>
                 )
-            }
         })}
             </div>
           </div>
           <div className="p-4 ">
             <div className="bg-[#B7B7B7] rounded-md p-2">
-            <h3>Price Details (3 Items)</h3>
-            {productArray.map((product) => {
-            if(cartItems[product.id] !== 0){
+            <h3>Price Details ({cartItems.length})</h3>
+            {cartItems.map((product) => {
                 return (
                   <div key={product.id} className="flex items-center justify-between">
-                    <p>{product.title}</p>
-                    <p>{product.price}</p>
+                    <p>{product.name}</p>
+                    <p>{product.current_price[0].NGN[0] * product.amount}</p>
                   </div>
                 )
-            }
         })}
         <hr/>
-        <div>
+        <div className="flex items-center justify-between">
           <h3>Total Amount</h3>
-          <p></p>
+          <p className="font-bold">{totalValue}</p>
         </div>
             </div>
           </div>
