@@ -7,7 +7,7 @@ import { ShopCart } from './CartContext';
 function FlashSale() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const {addToCart, cartItems, productArray} = useContext(ShopCart)
-  // console.log(productArray);
+  console.log(productArray);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % flashSale.length);
